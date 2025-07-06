@@ -63,7 +63,8 @@ internal fun Project.configureBuildTypes(
 
 private fun BuildType.configureDebugBuildType(apiKey: String) {
     buildConfigField("String", "API_KEY", "\"$apiKey\"")
-    buildConfigField("String", "BASE_URL", "\"https://runique.pl-coding.com:8080\"")
+//    buildConfigField("String", "BASE_URL", "\"https://runique.pl-coding.com:8080\"")
+    buildConfigField("String", "BASE_URL", "\"http://10.0.2.2:8080\"")
 }
 
 private fun BuildType.configureReleaseBuildType(
