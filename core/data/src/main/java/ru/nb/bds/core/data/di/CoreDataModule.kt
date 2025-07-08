@@ -8,8 +8,8 @@ import ru.nb.bds.core.data.networking.HttpClientFactory
 import ru.nb.bds.core.domain.SessionStorage
 
 val coreDataModule = module {
-	single {
-		HttpClientFactory().build()
-	}
-	singleOf(::EncryptedSessionStorage).bind<SessionStorage>()
+    single {
+        HttpClientFactory(get()).build()
+    }
+    singleOf(::EncryptedSessionStorage).bind<SessionStorage>()
 }
