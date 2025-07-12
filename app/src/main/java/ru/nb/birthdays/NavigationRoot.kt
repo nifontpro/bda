@@ -1,5 +1,6 @@
 package ru.nb.birthdays
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -20,6 +21,7 @@ fun NavigationRoot(
         startDestination = if (isLoggedIn) "run" else "auth"
     ) {
         authGraph(navController)
+        runGraph(navController)
     }
 }
 
@@ -73,6 +75,17 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
                     }
                 }
             )
+        }
+    }
+}
+
+private fun NavGraphBuilder.runGraph(navController: NavHostController) {
+    navigation(
+        startDestination = "run_overview",
+        route = "run"
+    ) {
+        composable("run_overview") {
+            Text(text = "Run overview!")
         }
     }
 }
