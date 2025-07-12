@@ -6,6 +6,6 @@ import ru.nb.bds.auth.presenter.login.LoginViewModel
 import ru.nb.bds.auth.presenter.register.RegisterViewModel
 
 val authViewModelModule = module {
-	viewModelOf(::RegisterViewModel)
-	viewModelOf(::LoginViewModel)
+    viewModelOf(::RegisterViewModel)
+    viewModelOf(::LoginViewModel)
 }
