@@ -1,6 +1,7 @@
 package ru.nb.birthdays
 
 import android.app.Application
+import di.runViewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -13,21 +14,22 @@ import timber.log.Timber
 
 class BirthdaysApp : Application() {
 
-	override fun onCreate() {
-		super.onCreate()
-		if (BuildConfig.DEBUG) {
-			Timber.plant(Timber.DebugTree())
-		}
+    override fun onCreate() {
+        super.onCreate()
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
 
-		startKoin {
-			androidLogger()
-			androidContext(this@BirthdaysApp)
-			modules(
-				authDataModule,
-				authViewModelModule,
-				appModule,
-				coreDataModule
-			)
-		}
-	}
+        startKoin {
+            androidLogger()
+            androidContext(this@BirthdaysApp)
+            modules(
+                authDataModule,
+                authViewModelModule,
+                appModule,
+                coreDataModule,
+                runViewModelModule
+            )
+        }
+    }
 }
